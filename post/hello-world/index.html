@@ -240,6 +240,8 @@
     if (location.pathname !== '/' && location.pathname !== '/index.html') return;
     var header = document.getElementById('page-header');
     if (!header) return;
+              var mask = document.createElement('div');
+    mask.className = 'page-video-mask';
     var video = document.createElement('video');
     video.className = 'page-video-bg';
     video.autoplay = true; video.muted = true; video.loop = true; video.playsInline = true;
@@ -250,5 +252,6 @@
     });
     header.classList.add('video-bg');
     header.insertBefore(video, header.firstChild);
+    header.insertBefore(mask, header.firstChild);
   })();
 </script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
