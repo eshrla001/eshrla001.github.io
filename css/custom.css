@@ -1,0 +1,465 @@
+/* ============================================
+   逸小岚 - 暗色极客风 Custom Styles
+   Dark Hacker Theme for Butterfly
+   ============================================ */
+
+/* === Google Fonts Import === */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+
+/* === CSS Variables (Dark Mode) === */
+:root {
+  --hacker-green: #00d4aa;
+  --hacker-green-bright: #00ff88;
+  --hacker-blue: #5eead4;
+  --hacker-cyan: #22d3ee;
+  --hacker-bg-dark: #0d1117;
+  --hacker-bg-card: #161b22;
+  --hacker-bg-code: #0d1117;
+  --hacker-border: #30363d;
+  --hacker-text: #c9d1d9;
+  --hacker-text-muted: #8892b0;
+  --hacker-glow: rgba(0, 212, 170, 0.15);
+  --hacker-glow-strong: rgba(0, 255, 136, 0.3);
+}
+
+/* === Global Dark Background === */
+[data-theme='dark'] {
+  --global-bg: var(--hacker-bg-dark) !important;
+  --card-bg: var(--hacker-bg-card) !important;
+  --sidebar-bg: var(--hacker-bg-card) !important;
+  --btn-bg: var(--hacker-bg-card) !important;
+  --search-bg: var(--hacker-bg-card) !important;
+  --light-grey: var(--hacker-text-muted) !important;
+  --font-color: var(--hacker-text) !important;
+  --hr-color: rgba(0, 212, 170, 0.2) !important;
+  --hl-color: var(--hacker-green) !important;
+  --hl-bg: var(--hacker-bg-code) !important;
+  --hltools-bg: #1a1f2b !important;
+}
+
+/* === Navigation Bar - Glassmorphism === */
+#nav {
+  background: rgba(13, 17, 23, 0.85) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hacker-border) !important;
+}
+
+#nav #site-name {
+  color: var(--hacker-green) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 700;
+  text-shadow: 0 0 10px var(--hacker-glow);
+}
+
+#nav .menus .menus_item .menus_item_child {
+  background: rgba(22, 27, 34, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--hacker-border) !important;
+}
+
+/* === Homepage Top Area - Dark Gradient (cover banner image) === */
+#page-header {
+  background: linear-gradient(160deg, #0d1117 0%, #0a1628 30%, #0d1117 60%, #111a2e 100%) !important;
+  background-image: none !important;
+  position: relative;
+}
+
+/* Subtle grid pattern overlay */
+#page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle green glow in center */
+#page-header::after {
+  content: '';
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(0, 212, 170, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Site info container - centered */
+#page-header #site-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Site title and subtitle styling */
+#page-header #site-title {
+  font-family: 'JetBrains Mono', monospace !important;
+  text-shadow: 0 0 30px var(--hacker-glow-strong);
+  position: relative;
+  z-index: 1;
+  color: var(--hacker-green-bright) !important;
+  font-size: 2.5rem !important;
+  letter-spacing: 2px;
+}
+
+#page-header #site-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  text-shadow: 0 0 15px var(--hacker-glow);
+  position: relative;
+  z-index: 1;
+  color: var(--hacker-blue) !important;
+  font-size: 1rem !important;
+  margin-top: 8px;
+}
+
+/* Site stats (articles/tags/categories) */
+#page-header #site-stats {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+#page-header #site-stats a {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+#page-header #site-stats .stat-item {
+  text-align: center;
+}
+
+#page-header #site-stats .stat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--hacker-green-bright) !important;
+  line-height: 1.2;
+}
+
+#page-header #site-stats .stat-label {
+  font-size: 0.85rem;
+  color: var(--hacker-text-muted) !important;
+  margin-top: 2px;
+}
+
+#page-header #site-stats a:hover .stat-num {
+  text-shadow: 0 0 12px var(--hacker-glow-strong);
+}
+
+/* Site social icons */
+#page-header #site_social_icons {
+  position: relative;
+  z-index: 1;
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+#page-header #site_social_icons .social-icon {
+  color: var(--hacker-text-muted) !important;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+#page-header #site_social_icons .social-icon:hover {
+  color: var(--hacker-green-bright) !important;
+  text-shadow: 0 0 10px var(--hacker-glow);
+}
+
+#page-header #site-subtitle {
+  color: var(--hacker-blue) !important;
+}
+
+/* === Article Cards - Hacker Style === */
+[data-theme='dark'] .recent-posts .recent-post-item {
+  background: var(--hacker-bg-card) !important;
+  border: 1px solid var(--hacker-border) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .recent-posts .recent-post-item:hover {
+  border-color: var(--hacker-green) !important;
+  box-shadow: 0 0 20px var(--hacker-glow), 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-2px);
+}
+
+[data-theme='dark'] .recent-posts .recent-post-item .recent-post-info .article-title {
+  color: var(--hacker-text) !important;
+}
+
+[data-theme='dark'] .recent-posts .recent-post-item .recent-post-info .article-title:hover {
+  color: var(--hacker-green) !important;
+}
+
+[data-theme='dark'] .recent-posts .recent-post-item .recent-post-info .article-meta-wrap a {
+  color: var(--hacker-green) !important;
+}
+
+/* === Sidebar Cards === */
+[data-theme='dark'] .card-widget {
+  background: var(--hacker-bg-card) !important;
+  border: 1px solid var(--hacker-border) !important;
+  border-radius: 8px !important;
+}
+
+[data-theme='dark'] .card-widget .card-author-avatar {
+  border: 2px solid var(--hacker-green) !important;
+  box-shadow: 0 0 15px var(--hacker-glow) !important;
+}
+
+[data-theme='dark'] .card-widget .item-headline {
+  color: var(--hacker-green) !important;
+}
+
+[data-theme='dark'] .card-widget a {
+  color: var(--hacker-text) !important;
+}
+
+[data-theme='dark'] .card-widget a:hover {
+  color: var(--hacker-green-bright) !important;
+}
+
+/* === Tag Cloud - Neon Style === */
+[data-theme='dark'] .card-tag-cloud a {
+  color: var(--hacker-text-muted) !important;
+  border: 1px solid var(--hacker-border) !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  margin: 4px !important;
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] .card-tag-cloud a:hover {
+  color: var(--hacker-green-bright) !important;
+  border-color: var(--hacker-green) !important;
+  background: var(--hacker-glow) !important;
+  box-shadow: 0 0 8px var(--hacker-glow);
+}
+
+/* === Code Blocks - Terminal Feel === */
+[data-theme='dark'] figure.highlight {
+  border: 1px solid var(--hacker-border) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] figure.highlight .highlight-tools {
+  background: #1a1f2b !important;
+  border-bottom: 1px solid var(--hacker-border) !important;
+}
+
+/* === Blockquote - Hacker Style === */
+[data-theme='dark'] blockquote {
+  border-left: 4px solid var(--hacker-green) !important;
+  background: rgba(0, 212, 170, 0.05) !important;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+[data-theme='dark'] blockquote p {
+  color: var(--hacker-text-muted) !important;
+}
+
+/* === Tables - Clean Dark Style === */
+[data-theme='dark'] table {
+  border-collapse: collapse;
+  border: 1px solid var(--hacker-border) !important;
+}
+
+[data-theme='dark'] table th {
+  background: rgba(0, 212, 170, 0.1) !important;
+  color: var(--hacker-green) !important;
+  border: 1px solid var(--hacker-border) !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+}
+
+[data-theme='dark'] table td {
+  border: 1px solid var(--hacker-border) !important;
+  color: var(--hacker-text) !important;
+}
+
+[data-theme='dark'] table tr:hover {
+  background: rgba(0, 212, 170, 0.03) !important;
+}
+
+/* === Links - Glow on Hover === */
+[data-theme='dark'] #article-container a {
+  color: var(--hacker-blue) !important;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(94, 234, 212, 0.3);
+  transition: all 0.2s ease;
+}
+
+[data-theme='dark'] #article-container a:hover {
+  color: var(--hacker-green-bright) !important;
+  border-bottom-color: var(--hacker-green-bright);
+  text-shadow: 0 0 8px var(--hacker-glow);
+}
+
+/* === Headings - Terminal Prompt Style === */
+[data-theme='dark'] #article-container h1,
+[data-theme='dark'] #article-container h2,
+[data-theme='dark'] #article-container h3,
+[data-theme='dark'] #article-container h4 {
+  color: var(--hacker-text) !important;
+  font-family: 'Noto Sans SC', sans-serif;
+}
+
+[data-theme='dark'] #article-container h2 {
+  border-bottom: 1px solid var(--hacker-border) !important;
+  padding-bottom: 8px;
+}
+
+[data-theme='dark'] #article-container h2::before {
+  content: '## ';
+  color: var(--hacker-green) !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+}
+
+[data-theme='dark'] #article-container h3::before {
+  content: '### ';
+  color: var(--hacker-green) !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+}
+
+/* === TOC (Table of Contents) === */
+[data-theme='dark'] #aside-content .card-widget#card-toc .toc-link.active {
+  color: var(--hacker-green-bright) !important;
+}
+
+[data-theme='dark'] #aside-content .card-widget#card-toc a:hover {
+  color: var(--hacker-green) !important;
+}
+
+/* === Post Copyright === */
+[data-theme='dark'] .post-copyright {
+  background: var(--hacker-bg-card) !important;
+  border: 1px solid var(--hacker-border) !important;
+  border-radius: 8px;
+}
+
+/* === Pagination === */
+[data-theme='dark'] #pagination .page-number,
+[data-theme='dark'] #pagination .extend {
+  color: var(--hacker-text) !important;
+  border: 1px solid var(--hacker-border) !important;
+}
+
+[data-theme='dark'] #pagination .page-number.current {
+  background: var(--hacker-green) !important;
+  color: var(--hacker-bg-dark) !important;
+}
+
+/* === Footer === */
+[data-theme='dark'] #footer {
+  background: var(--hacker-bg-card) !important;
+  border-top: 1px solid var(--hacker-border) !important;
+}
+
+/* === Right Side Buttons === */
+[data-theme='dark'] #rightside > div > button,
+[data-theme='dark'] #rightside > div > a {
+  background: var(--hacker-bg-card) !important;
+  border: 1px solid var(--hacker-border) !important;
+  color: var(--hacker-text) !important;
+}
+
+[data-theme='dark'] #rightside > div > button:hover,
+[data-theme='dark'] #rightside > div > a:hover {
+  background: var(--hacker-green) !important;
+  color: var(--hacker-bg-dark) !important;
+  box-shadow: 0 0 12px var(--hacker-glow);
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hacker-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--hacker-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hacker-green);
+}
+
+/* === Selection Highlight === */
+::selection {
+  background: rgba(0, 212, 170, 0.3);
+  color: #fff;
+}
+
+/* === Inline Code === */
+[data-theme='dark'] code:not([class*='language-']) {
+  color: var(--hacker-green-bright) !important;
+  background: rgba(0, 212, 170, 0.08) !important;
+  border: 1px solid var(--hacker-border) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  padding: 1px 6px !important;
+  border-radius: 3px !important;
+}
+
+/* === Horizontal Rule === */
+[data-theme='dark'] hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--hacker-green), transparent);
+}
+
+/* === Announcement Card === */
+[data-theme='dark'] .card-announcement {
+  border: 1px dashed var(--hacker-border) !important;
+}
+
+/* === Note Tags === */
+[data-theme='dark'] .note {
+  border-radius: 6px !important;
+}
+
+/* === Post Meta Icons === */
+[data-theme='dark'] .article-meta-wrap .article-meta {
+  color: var(--hacker-text-muted) !important;
+}
+
+/* === Search Dialog === */
+[data-theme='dark'] .search-dialog {
+  background: var(--hacker-bg-card) !important;
+  border: 1px solid var(--hacker-border) !important;
+}
+
+/* === Smooth Transitions === */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+}
